@@ -42,7 +42,7 @@ labels: ["node:macmini", "executor:hermes"]
 
 ## 执行预算与停止条件
 
-本任务累计执行预算为 **600 秒（10 分钟）**；排队不计入，同一 Issue 重试不重置预算。
+本任务累计执行预算为 **3600 秒（60 分钟）**；排队不计入，同一 Issue 重试不重置预算。
 
 给 agent 的工作约定：
 - 达到本次验收标准、完成上述验证后即交付，不继续扩展功能或重构。
@@ -64,5 +64,5 @@ labels: ["node:macmini", "executor:hermes"]
 
 <!-- 控制块只保留一份。修改预算时同步修改上面的可见数字，并遵守节点上限；普通文字不会修改预算。新任务使用 fresh。 -->
 <!-- agent-runner
-{"retry_mode":"fresh","profile":"normal","limit_seconds":600}
+{"retry_mode":"fresh","profile":"normal","limit_seconds":3600}
 -->
