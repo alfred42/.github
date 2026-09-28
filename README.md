@@ -28,7 +28,11 @@
 
 ## 返工
 
-等待上一轮结束且结果交付完成，移除旧 `agent:ready`，将反馈整理到原 Issue。Codex 可把唯一控制块中的 `retry_mode` 改为 `revise` 修订原 PR，或用 `resume` 续做；Hermes / Antigravity 当前仅支持 `fresh`。保留原预算，保存后等 2 秒再单独添加 Ready。先前取消的任务须确认停止后才移除 `agent:cancel`。
+等待上一轮结束且结果交付完成，移除旧 `agent:ready`，把补充说明或 PR 反馈整理到原 Issue，保存后等 2 秒再添加 Ready。先前取消的任务须确认停止后才移除 `agent:cancel`。
+
+Mac mini / Codex 的新模板默认自动选择：首次从基线执行；已有工作但尚无 PR 时保留现场续做；本分支已交付 PR 时继续修订原 Draft PR。日常无需编辑末尾的控制块。结果评论会标明实际模式，恢复核验失败会 blocked 并说明原因，不会自动从头重做。
+
+旧 Issue 明确填写的 `retry_mode=fresh/resume/revise` 继续生效；要启用自动选择，一次性删除该字段或改为 `"retry_mode":"auto"`，保留原预算后再授权。只有明确决定从基线重新开发时才指定 fresh；它会另开目录和分支，但不重置累计预算。Hermes / Antigravity 当前仍仅支持 fresh，三个对应模板保持显式 fresh。评论本身不会启动任务，也没有新增评论命令。
 
 ## 接入其他仓库
 

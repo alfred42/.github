@@ -54,6 +54,8 @@ labels: ["node:macmini", "executor:codex"]
 
 **人工中止：在本 Issue 添加 `agent:cancel`，保持节点服务运行，等待节点确认停止。** 取消不是瞬时操作；移除 `agent:ready`、评论“停止”或勾选清单均不会中止已运行任务。
 
+**后续续做或返工：** 等本轮结束并完成交付，在原 Issue 补充说明，移除旧 `agent:ready`，保存后等 2 秒再添加 Ready。节点会保留原现场续做或修订原 PR，无需修改控制块。
+
 ## 交付要求
 
 使用 runner 工具读写代码，在项目容器内验证；不自行操作 Git 或 GitHub。由 runner 交付 Draft PR。
@@ -62,7 +64,7 @@ labels: ["node:macmini", "executor:codex"]
 
 `agent:review` 表示待人工验收。验收人核对实际 diff 和测试证据后决定通过、返工或终止，再决定是否合并 PR、关闭 Issue。
 
-<!-- 控制块只保留一份。修改预算时同步修改上面的可见数字，并遵守节点上限；普通文字不会修改预算。新任务使用 fresh。 -->
+<!-- 控制块只保留一份。修改预算时同步修改上面的可见数字，并遵守节点上限；普通文字不会修改预算。默认自动选择首次执行、续做或修订；日常无需修改此块。明确从头重做时才添加 retry_mode=fresh。 -->
 <!-- agent-runner
-{"retry_mode":"fresh","profile":"normal","limit_seconds":3600}
+{"profile":"normal","limit_seconds":3600}
 -->

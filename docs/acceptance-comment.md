@@ -16,5 +16,5 @@
 - 返工要求或终止原因：【没有则写“无”；返工引用 AC 编号，写清实际与预期差异】
 
 <!-- 把这份评论发在原 Issue；评论本身不启动、停止或验收合并任务。 -->
-<!-- 返工：等上一轮结束和交付完成，移除旧 Ready，在原 Issue 写明反馈，并修改唯一控制块；Codex 可用 revise 修订原 PR。保存后等 2 秒，再单独添加 agent:ready。Hermes / Antigravity 当前仅支持 fresh，不能套用 revise。 -->
+<!-- 返工：等上一轮结束和交付完成，移除旧 Ready，在原 Issue 写明反馈；新 Codex 模板会自动修订原 PR，旧显式模式需一次性改为 auto 或删除 retry_mode。保存后等 2 秒，再单独添加 agent:ready。Hermes / Antigravity 当前仅支持 fresh，不能套用 revise。 -->
 <!-- 正在执行且要终止：在原 Issue 添加 agent:cancel，等确认停止，再整理最终结论。不要只评论“终止”。 -->
